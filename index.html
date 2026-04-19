@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوة زفاف محمد وسارة</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#bc9355',
+                        cream: '#fcf6f0', /* Slightly warmer off-white */
+                        charcoal: '#212121', /* Deep charcoal */
+                    },
+                    fontFamily: {
+                        heading: ['Amiri', 'serif'],
+                        body: ['Cairo', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #fdfbf7;
+            color: #212121;
+            overflow-x: hidden;
+        }
+
+        /* Entrance Transition CSS */
+        #landingCover {
+            position: fixed;
+            inset: 0;
+            background-color: #fdfbf7;
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
+            background-image: radial-gradient(circle at center, #ffffff 0%, #fdfbf7 100%);
+        }
+
+        #landingCover.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        #mainContent {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transition: opacity 1.5s ease-in-out 1s, visibility 1.5s ease-in-out 1s;
+        }
+
+        #mainContent.fade-in {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Floral / Decor accents (optional CSS shapes) */
+        .gold-border-arch {
+            border: 2px solid #bc9355;
+            padding: 0.5rem;
+            border-radius: 9999px 9999px 24px 24px;
+        }
+
+        .image-arch {
+            border-radius: 9999px 9999px 20px 20px;
+            object-fit: cover;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(to right, #bc9355, #d4af37, #bc9355);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .timer-box {
+            background: linear-gradient(145deg, #ffffff, #f3ede6);
+            box-shadow: 5px 5px 15px #e6dfd5, -5px -5px 15px #ffffff;
+        }
+    </style>
+</head>
+<body class="font-body antialiased relative selection:bg-gold selection:text-white">
+
+    <!-- Hidden Audio Player -->
+    <audio id="bgMusic" src="music.mp3" preload="auto"></audio>
+
+    <!-- 1. Landing Screen (Entrance) -->
+    <div id="landingCover">
+        <!-- Decorative top element -->
+        <div class="w-px h-24 bg-gold mb-8 opacity-50"></div>
+        
+        <h1 class="font-heading text-4xl md:text-5xl text-gold mb-12 tracking-wide animate-float">
+            بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ
+        </h1>
+        
+        <button id="openBtn" class="group relative px-10 py-3 overflow-hidden rounded-full border border-gold text-gold font-body text-lg tracking-wider transition-all hover:shadow-[0_0_20px_rgba(188,147,85,0.4)]">
+            <span class="relative z-10 group-hover:text-white transition-colors duration-500">فتح الدعوة</span>
+            <div class="absolute inset-0 h-full w-0 bg-gold transition-all duration-500 ease-out group-hover:w-full z-0"></div>
+        </button>
+        
+        <!-- Decorative bottom element -->
+        <div class="w-px h-24 bg-gold mt-12 opacity-50"></div>
+    </div>
+
+    <!-- 2. Main Invitation Content -->
+    <main id="mainContent" class="min-h-screen pb-20 flex flex-col items-center overflow-x-hidden">
+        
+        <!-- Header Section -->
+        <header class="text-center mt-20 mb-16 px-4 w-full relative">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-16 bg-gradient-to-b from-transparent to-gold opacity-50"></div>
+            <p class="font-heading text-lg md:text-xl text-gold mb-4 tracking-[0.2em] uppercase pt-12">دعوة زفاف</p>
+            <h1 class="font-heading text-6xl md:text-7xl text-charcoal mb-6 leading-tight">
+                محمد <span class="text-gold mx-2">&amp;</span> سارة
+            </h1>
+            <p class="font-body text-lg md:text-xl text-gray-500 font-light max-w-md mx-auto leading-relaxed">
+                تكتمل فرحتنا بحضوركم، وتشريفكم لنا يزيد من بهجتنا في يوم زفافنا.
+            </p>
+        </header>
+
+        <!-- Media Section -->
+        <section class="mb-20 px-4 w-full flex justify-center">
+            <div class="gold-border-arch w-full max-w-[320px] aspect-[3/4] bg-white shadow-2xl transform hover:scale-[1.02] transition-transform duration-500">
+                <img src="bride-groom.jpeg" alt="محمد وسارة" class="image-arch w-full h-full block">
+            </div>
+        </section>
+
+        <!-- Details Section -->
+        <section class="mb-20 text-center px-4 w-full">
+            <div class="inline-block relative py-10 px-12 border-y border-gold/30">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-fdfbf7 px-4 text-gold">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </div>
+                
+                <h3 class="font-heading text-3xl md:text-4xl text-charcoal mb-4">الاثنين، 25 مايو 2026</h3>
+                <p class="font-heading text-2xl text-gold mb-6">الساعة 7:00 مساءً</p>
+                <div class="font-body text-lg text-gray-600 bg-white/50 py-2 px-6 rounded-full inline-block backdrop-blur-sm border border-gold/20 shadow-sm">
+                    ريحانة بلازا
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section class="mb-24 w-full max-w-2xl px-4 text-center">
+            <h2 class="font-heading text-3xl text-gold mb-10">العد التنازلي لفرحتنا</h2>
+            <div class="flex justify-center gap-3 md:gap-6 text-charcoal" dir="ltr">
+                <div class="timer-box flex flex-col items-center justify-center p-4 md:p-6 rounded-2xl w-20 md:w-28 border border-white">
+                    <span id="days" class="font-heading text-3xl md:text-5xl text-gold mb-1">00</span>
+                    <span class="font-body text-xs md:text-sm text-gray-500 font-bold uppercase tracking-wider">يوم</span>
+                </div>
+                <div class="timer-box flex flex-col items-center justify-center p-4 md:p-6 rounded-2xl w-20 md:w-28 border border-white">
+                    <span id="hours" class="font-heading text-3xl md:text-5xl text-gold mb-1">00</span>
+                    <span class="font-body text-xs md:text-sm text-gray-500 font-bold uppercase tracking-wider">ساعة</span>
+                </div>
+                <div class="timer-box flex flex-col items-center justify-center p-4 md:p-6 rounded-2xl w-20 md:w-28 border border-white">
+                    <span id="minutes" class="font-heading text-3xl md:text-5xl text-gold mb-1">00</span>
+                    <span class="font-body text-xs md:text-sm text-gray-500 font-bold uppercase tracking-wider">دقيقة</span>
+                </div>
+                <div class="timer-box flex flex-col items-center justify-center p-4 md:p-6 rounded-2xl w-20 md:w-28 border border-white">
+                    <span id="seconds" class="font-heading text-3xl md:text-5xl text-gold mb-1">00</span>
+                    <span class="font-body text-xs md:text-sm text-gray-500 font-bold uppercase tracking-wider">ثانية</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section class="w-full max-w-4xl px-4 text-center mb-10">
+            <h2 class="font-heading text-3xl text-gold mb-4">موقع الحفل</h2>
+            <p class="font-body text-lg text-gray-600 mb-8 font-light">طريق الواحات، الحي العاشر، مدينة نصر</p>
+            
+            <div class="w-full border-[6px] border-white shadow-xl rounded-2xl overflow-hidden bg-white">
+                <iframe 
+                    src="https://maps.google.com/maps?q=Rehana%20Plaza,%20Nasr%20City&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    title="موقع ريحانة بلازا">
+                </iframe>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="mt-12 text-center pb-8">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Ornamental_divider_4.svg/1024px-Ornamental_divider_4.svg.png" alt="زخرفة" class="w-32 mx-auto mb-6 opacity-30" style="filter: sepia(1) hue-rotate(5deg) saturate(3);">
+            <p class="font-body text-sm text-gray-400 tracking-wider">ننتظركم بكل حب ومودة</p>
+        </footer>
+    </main>
+
+    <script>
+        // --- Entrance & Audio Logic ---
+        const openBtn = document.getElementById('openBtn');
+        const landingCover = document.getElementById('landingCover');
+        const mainContent = document.getElementById('mainContent');
+        const bgMusic = document.getElementById('bgMusic');
+
+        openBtn.addEventListener('click', () => {
+            // 1. Fade out the cover
+            landingCover.classList.add('fade-out');
+            
+            // 2. Play Audio starting at 25s
+            bgMusic.currentTime = 25;
+            
+            // Add slight fade-in for audio to make it elegant
+            bgMusic.volume = 0;
+            const playPromise = bgMusic.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    // Smooth volume fade-in
+                    let vol = 0;
+                    const fadeInterval = setInterval(() => {
+                        if (vol < 0.9) {
+                            vol += 0.1;
+                            bgMusic.volume = vol;
+                        } else {
+                            bgMusic.volume = 1;
+                            clearInterval(fadeInterval);
+                        }
+                    }, 100);
+                }).catch(error => {
+                    console.log("Audio play blocked by browser:", error);
+                });
+            }
+
+            // 3. Fade in main content & restore positioning so we can scroll
+            mainContent.classList.add('fade-in');
+            
+            // Wait for transition to finish before changing position to relative
+            setTimeout(() => {
+                mainContent.style.position = 'relative';
+                landingCover.style.display = 'none'; // completely remove from flow
+            }, 1500); // 1.5s matches CSS transition duration
+        });
+
+
+        // --- Countdown Timer Logic ---
+        // Target Date: May 25, 2026, at 7:00 PM (19:00:00)
+        const targetDate = new Date("May 25, 2026 19:00:00").getTime();
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const daysEl = document.getElementById("days");
+            const hoursEl = document.getElementById("hours");
+            const minutesEl = document.getElementById("minutes");
+            const secondsEl = document.getElementById("seconds");
+
+            if (distance < 0) {
+                daysEl.innerText = "00";
+                hoursEl.innerText = "00";
+                minutesEl.innerText = "00";
+                secondsEl.innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            daysEl.innerText = days.toString().padStart(2, '0');
+            hoursEl.innerText = hours.toString().padStart(2, '0');
+            minutesEl.innerText = minutes.toString().padStart(2, '0');
+            secondsEl.innerText = seconds.toString().padStart(2, '0');
+        };
+
+        // Initialize immediately to prevent flashing '00'
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
